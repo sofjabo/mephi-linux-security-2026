@@ -97,6 +97,6 @@ ls -l ./testfile
 
 **Проверка:**
 ```
-su−user1 
+su − user1 
 sudo timedatectl set-time "2026-09-12 12:00:00"
 ```
