@@ -1,0 +1,79 @@
+    1  ls
+    2  sudo whoami
+    3  su -
+    4  sudo useradd -u 1234 -m user1
+    5  sudo whoami
+    6  su -
+    7  sudo whoami
+    8  su -
+    9  sudo whoami
+   10  id
+   11  sudo whoami
+   12  exit
+   13  newgrp wheel
+   14  sudo whoami
+   15  id
+   16  sudo whoami
+   17  nano ~/.bashrc
+   18  echo 'export LANG=C' >> ~/.bashrc
+   19  echo 'export LC_ALL=C' >> ~/.bashrc
+   20  source ~/.bashrc
+   21  id
+   22  sudo useradd -u 1234 -m user1
+   23  sudo groupadd students
+   24  sudo usermod -aG students user1
+   25  sudo passwd user1
+   26  sudo chage -M 90 user1
+   27  is user1
+   28  id user1
+   29  sudo chage -l user1
+   30  sudo find / -perm -4000 -type f 2>/dev/null | tee ~/task21.out
+   31  ls
+   32  cat task21.out 
+   33  ps -eo pid,ruid,euid,comm --sort=pid | awk 'NR==1 || ($3==0 $$ $2!=0)' || tee ~/task22.out
+   34  ps -eo pid,ruid,euid,comm --sort=pid |  awk 'NR==1 || ($3==0 && $2!=0)' || tee ~/task22.out
+   35  ls
+   36  cat task22.out 
+   37  rm task22.out 
+   38  ps -eo pid,ruid,euid,comm --sort=pid | awk 'NR==1 || ($3==0 && $2!=0)' | tee ~/task22.out
+   39  cat task22.out 
+   40  cat task21.out 
+   41  cat /etc/shadow
+   42  cp /usr/bin/cat ~/mycat
+   43  sudo chown root:root ~/mycat 
+   44  sudo chmod u+s ~/mycat 
+   45  ls -l ./mycat 
+   46  ~/mycat /etc/shadow | head -3
+   47  ~/mycat /etc/shadow
+   48  stat ~/mycat >> ~/task3.out
+   49  getcap ~/mycat >> ~/task3_getcap.out
+   50  cat task3_stat.out 
+   51  cat task3_getcap.out 
+   52  ~/mycat /etc/shadow | head -3
+   53  cat task3_getcap.out 
+   54  ls
+   55  ls -ail
+   56  cp /usr/bin/chown ~/mychown
+   57  sudo setcap cap_chown+ep ~/mychown
+   58  getcap ~/mychown
+   59  touch ~/testfile
+   60  ls -l ~/testfile
+   61  ~/mychown user1 ~/testfile
+   62  ls -l ~/testfile
+   63  stat ~/mychown >> ~/task4_stat.out
+   64  getcap ~/mychown >> ~/task4_getcap.out
+   65  cat task4_getcap.out 
+   66  cat task4_stat.out
+   67  which timedatectl
+   68  sudo visudo
+   69  sudo nano visudo
+   70  sudo EDITOR=nano visudo
+   71  su - user1
+   72  sudo timedatectl set-ntp false
+   73  su - user1
+   74  sudo cp /etc/sudoers ~/task5.out
+   75  sudo grep user1 /etc/sudoers
+   76  echo 372313
+   77  clear
+   78  echo 372313
+   79  history > ~/history.out
